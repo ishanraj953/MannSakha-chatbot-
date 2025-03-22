@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MannSakha AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">MannSakha AI</div>
+        <nav>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#careers">CAREERS</a></li>
+                <li><a href="#blog">BLOG</a></li>
+                <li><a href="#chatbot" class="try-btn">TRY MANNSAKHA</a></li>
+                <li id="userProfile" class="user-profile">
+                    <span id="userEmail"></span>
+                    <a href="#" onclick="logout()" class="logout-link">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1 class="main-title">MannSakha.AI</h1>
+        <!-- Replaced search bar with a clickable button -->
+        <button class="ask-button" id="chatRedirect">
+            Ask MannSakha AI Anything... <span class="arrow">→</span>
+        </button>
+        <p>We are thrilled to unveil MannSakha AI, your trusted companion for smarter solutions.</p>
+        <div class="cta-buttons">
+            <a href="#" class="primary-btn">MANNSAKHA+ Coming Soon</a>
+            
+        </div>
+        <div class="scroll-indicator">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/expand-arrow--v1.png" alt="scroll" width="20">
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- AI Chatbot Section -->
+        <section id="chatbot" class="section">
+            <h2>AI-Powered Chatbot</h2>
+            <div class="chat-area" id="chatArea">
+                <div class="chat-bubble ai-message">Hi! How are you feeling today?</div>
+            </div>
+            <div class="input-bar">
+                <input type="text" id="userInput" placeholder="Type your message..." />
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2>About Us</h2>
+            <p>This is the About section for MannSakha AI. We aim to support mental well-being through AI-powered tools.</p>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <h2>Services</h2>
+            <p>Explore our services like mood tracking, journaling, and guided meditation for mental health.</p>
+        </section>
+
+        <!-- Careers Section -->
+        <section id="careers" class="section">
+            <h2>Careers</h2>
+            <p>Join the MannSakha team and help us make a difference in mental health technology.</p>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="section">
+            <h2>Blog</h2>
+            <p>Read our latest articles on mental health, mindfulness, and AI technology.</p>
+        </section>
+
+        <!-- Mood Tracking and Journaling Section -->
+        <section id="mood-tracking" class="section">
+            <h2>Mood Tracking & Journaling</h2>
+            <div class="feature-content">
+                <div class="mood-log">
+                    <h3>Log Your Mood</h3>
+                    <select id="moodSelect">
+                        <option value="happy">Happy 😊</option>
+                        <option value="sad">Sad 😢</option>
+                        <option value="anxious">Anxious 😟</option>
+                        <option value="calm">Calm 😌</option>
+                    </select>
+                    <button onclick="logMood()">Log Mood</button>
+                </div>
+                <div class="journal">
+                    <h3>Reflective Journaling</h3>
+                    <p id="journalPrompt">What made you happy today?</p>
+                    <textarea id="journalEntry" placeholder="Write your thoughts..."></textarea>
+                    <button onclick="saveJournal()">Save Entry</button>
+                </div>
+            </div>
+            <div id="moodTrend" class="trend"></div>
+        </section>
+
+        <!-- Personalized Insights Section -->
+        <section id="insights" class="section">
+            <h2>Personalized Mental Health Insights</h2>
+            <div class="insights-content">
+                <p id="insightText">Based on your mood logs, you feel more stressed on Mondays. Try a breathing exercise!</p>
+                <button onclick="showSuggestion()">Get Suggestion</button>
+            </div>
+        </section>
+
+        <!-- Guided Meditation Section -->
+        <section id="meditation" class="section">
+            <h2>Guided Meditation & Mindfulness</h2>
+            <div class="meditation-content">
+                <div class="meditation-card">
+                    <h3>Stress Relief</h3>
+                    <p>5-minute guided meditation to reduce stress.</p>
+                    <button onclick="playMeditation('stress')">Play</button>
+                </div>
+                <div class="meditation-card">
+                    <h3>Focus</h3>
+                    <p>10-minute session to improve concentration.</p>
+                    <button onclick="playMeditation('focus')">Play</button>
+                </div>
+                <div class="meditation-card">
+                    <h3>Sleep</h3>
+                    <p>15-minute meditation for better sleep.</p>
+                    <button onclick="playMeditation('sleep')">Play</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gamification Section -->
+        <section id="gamification" class="section">
+            <h2>Gamification</h2>
+            <div class="gamification-content">
+                <p>Points: <span id="points">0</span></p>
+                <p>Streak: <span id="streak">0 days</span></p>
+                <button onclick="completeActivity()">Complete Activity</button>
+                <div id="badges" class="badges">
+                    <span class="badge">🏆 Beginner</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
