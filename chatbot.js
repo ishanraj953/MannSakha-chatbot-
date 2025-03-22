@@ -1,4 +1,5 @@
 // Chatbot Functionality
+console.log("testing");
 const chatInput = document.getElementById('chatInput');
 const sendBtn = document.getElementById('sendBtn');
 const chatContainer = document.getElementById('chatContainer');
