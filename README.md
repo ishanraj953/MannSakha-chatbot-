@@ -28,7 +28,7 @@ Ensure you have the following software and libraries installed:
 | React.js   | 18.x    |
 | MongoDB    | 6.x     |
 | OpenAI API | Latest  |
-| Tailwind CSS | Latest  |
+
 
 Install dependencies using:
 ```bash
