@@ -56,14 +56,14 @@ Create a `.env` file in the root directory and add:
 ```
 MONGO_URI=<your_mongodb_connection_string>
 OPENAI_API_KEY=<your_openai_api_key>
-PORT=5000
+PORT=3050
 ```
 
 ### 4. Start the Application
 ```bash
 npm run dev
 ```
-The application will run at **http://localhost:5000**.
+The application will run at **http://localhost:3050**.
 
 ---
 
