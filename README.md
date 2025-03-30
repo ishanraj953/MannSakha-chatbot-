@@ -76,7 +76,7 @@ The application will run at **http://localhost:3050**.
 ---
 
 ## Team Members
-- **Rounak Mishra** - Team Lead & Backend Developer
+- **Rounak Mishra** - Team Support & Backend Developer
 - **Shivam Kumar** - Frontend Developer
 - **Chandan Kumar** - Database & API Management
 - **Divya Singh** - UI/UX Designer & Content Strategist
