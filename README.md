@@ -27,7 +27,7 @@ Ensure you have the following software and libraries installed:
 | Express.js | 4.x     |
 | React.js   | 18.x    |
 | MongoDB    | 6.x     |
-| OpenAI API | Latest  |
+| Gemini API | Latest  |
 
 
 Install dependencies using:
@@ -55,7 +55,7 @@ npm install
 Create a `.env` file in the root directory and add:
 ```
 MONGO_URI=<your_mongodb_connection_string>
-OPENAI_API_KEY=<your_openai_api_key>
+GOOGLE_API_KEY=<your_gemini_api_key>
 PORT=3050
 ```
 
