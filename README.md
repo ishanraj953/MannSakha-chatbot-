@@ -1,7 +1,7 @@
 # MannSakha
 
 ## Project Overview
-**MannSakha** is an AI-powered chatbot designed to help users manage their busy schedules efficiently while incorporating stress management features. Unlike therapy-based mental health chatbots, MannSakha focuses on productivity, time management, and workload balance.
+**MannSakha** is an AI-powered chatbot designed to help users manage their busy schedules efficiently while incorporating stress management features. Unlike therapy-based mental health chatbots, MannSakha focuses on productivity, time management, and workload balance. 
 
 ### Problem it Solves:
 - Helps users organize tasks and appointments in a structured manner.
