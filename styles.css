@@ -641,3 +641,11 @@ nav ul li a:hover {
 .signup-link a:hover, .login-link a:hover {
     text-decoration: underline;
 }
+.drone-delivery-content {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  
