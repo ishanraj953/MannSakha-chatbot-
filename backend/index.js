@@ -4,12 +4,11 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import open from 'open'; // auto browser open
 
 dotenv.config();
 
 const app = express();
-const port = 3050;
+const port = process.env.PORT || 3050; // Use Render/Railway's port
 
 // For __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -18,7 +17,7 @@ const __dirname = path.dirname(__filename);
 app.use(cors());
 app.use(express.json());
 
-// Serve static files (frontend)
+// Serve static files from project root (frontend HTML/CSS/JS)
 app.use(express.static(path.join(__dirname, '../')));
 
 // Serve index.html for root
@@ -26,6 +25,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'));
 });
 
+// Function to list Gemini models
 async function listGeminiModels(apiKey) {
     try {
         const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
@@ -38,6 +38,7 @@ async function listGeminiModels(apiKey) {
     }
 }
 
+// Gemini API endpoint
 app.post('/api/gemini', async (req, res) => {
     const { message } = req.body;
     if (!message || typeof message !== 'string') {
@@ -58,19 +59,22 @@ app.post('/api/gemini', async (req, res) => {
         const selectedModel = "models/gemini-1.5-flash";
         const prompt = "Just give me the text response to the following input: " + message;
 
-        const geminiResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/${selectedModel}:generateContent?key=${apiKey}`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                contents: [{ parts: [{ text: prompt }] }],
-                generationConfig: {
-                    temperature: 0.9,
-                    topK: 1,
-                    topP: 1,
-                    maxOutputTokens: 2048,
-                },
-            }),
-        });
+        const geminiResponse = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/${selectedModel}:generateContent?key=${apiKey}`,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: prompt }] }],
+                    generationConfig: {
+                        temperature: 0.9,
+                        topK: 1,
+                        topP: 1,
+                        maxOutputTokens: 2048,
+                    },
+                }),
+            }
+        );
 
         if (!geminiResponse.ok) {
             const errorData = await geminiResponse.json();
@@ -90,6 +94,5 @@ app.post('/api/gemini', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
-    open(`http://localhost:${port}`); // Auto open browser
+    console.log(` Server running on port ${port}`);
 });
