@@ -808,6 +808,7 @@ nav ul li a:hover {
     padding: 20px;
     box-shadow: 0 4px 10px var(--shadow-color);
     margin-bottom: 20px;
+<<<<<<< HEAD
     border: 1px solid var(--border-color);
 }
 
@@ -907,5 +908,58 @@ button:active {
 [data-theme="dark"] select:focus {
     background: var(--bg-primary);
     border-color: var(--accent-secondary);
+=======
+  }
+
+.footer {
+    padding: 30px 0;
+    width:100%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    gap: 100px;
 }
-  
+
+.socials{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    list-style-type: none;
+    color: white;
+}
+
+.socials li a{
+    font-size: larger;
+    color: white;
+}
+
+.socials li a:hover{
+    color: #F5C518;
+}
+
+.footer-1{
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.quick-links{
+    /* flex: 1; */
+    list-style-type: none;
+}
+
+.quick-links li a{
+    text-decoration: none;
+    color: white;
+}
+
+.quick-links li a:hover{
+    color: #F5C518;
+>>>>>>> main
+}
