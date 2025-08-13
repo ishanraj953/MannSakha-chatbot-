@@ -1,3 +1,70 @@
+// Dark Mode Functionality
+let currentTheme = localStorage.getItem('theme') || 'auto';
+
+// Function to get system theme preference
+function getSystemTheme() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+// Function to set theme
+function setTheme(theme) {
+    let actualTheme = theme;
+    
+    // Handle auto theme
+    if (theme === 'auto') {
+        actualTheme = getSystemTheme();
+    }
+    
+    currentTheme = theme;
+    document.documentElement.setAttribute('data-theme', actualTheme);
+    localStorage.setItem('theme', theme);
+    
+    // Update toggle button
+    const toggleBtn = document.querySelector('.theme-toggle');
+    if (toggleBtn) {
+        const icon = toggleBtn.querySelector('i');
+        const text = toggleBtn.querySelector('span');
+        
+        if (actualTheme === 'dark') {
+            icon.className = 'fas fa-sun';
+            text.textContent = theme === 'auto' ? 'Auto' : 'Light';
+        } else {
+            icon.className = 'fas fa-moon';
+            text.textContent = theme === 'auto' ? 'Auto' : 'Dark';
+        }
+    }
+}
+
+// Function to toggle theme
+function toggleTheme() {
+    let newTheme;
+    if (currentTheme === 'light') {
+        newTheme = 'dark';
+    } else if (currentTheme === 'dark') {
+        newTheme = 'auto';
+    } else {
+        newTheme = 'light';
+    }
+    setTheme(newTheme);
+}
+
+// Initialize theme on page load
+function initializeTheme() {
+    setTheme(currentTheme);
+    
+    // Listen for system theme changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (currentTheme === 'auto') {
+                setTheme('auto');
+            }
+        });
+    }
+    
+    // Log theme status for debugging
+    console.log(`Theme initialized: ${currentTheme} (actual: ${document.documentElement.getAttribute('data-theme')})`);
+}
+
 // Initialize users array in localStorage if not exists
 if (!localStorage.getItem('users')) {
     localStorage.setItem('users', JSON.stringify([]));
@@ -67,6 +134,9 @@ function logout() {
 
 // Display logged-in user email in header and handle redirects
 window.onload = function () {
+    // Initialize theme first
+    initializeTheme();
+    
     const loggedInUser = localStorage.getItem('loggedInUser');
     if (loggedInUser) {
         const user = JSON.parse(loggedInUser);
@@ -85,6 +155,36 @@ window.onload = function () {
         }
     }
 };
+
+// Mobile Menu Toggle Function
+function toggleMobileMenu() {
+    const navMenu = document.querySelector('nav ul');
+    if (navMenu) {
+        navMenu.classList.toggle('active');
+    }
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const navMenu = document.querySelector('nav ul');
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    
+    if (navMenu && navMenu.classList.contains('active') && 
+        !navMenu.contains(event.target) && 
+        !mobileToggle.contains(event.target)) {
+        navMenu.classList.remove('active');
+    }
+});
+
+// Close mobile menu when clicking on a link
+document.addEventListener('click', function(event) {
+    if (event.target.tagName === 'A' && event.target.href) {
+        const navMenu = document.querySelector('nav ul');
+        if (navMenu && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+        }
+    }
+});
 
 // Redirect to Chatbot Section
 document.getElementById('chatRedirect')?.addEventListener('click', function () {

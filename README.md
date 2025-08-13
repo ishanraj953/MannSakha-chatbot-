@@ -16,6 +16,14 @@
 - **Doctor Recommendations**: Connects users with verified professionals.
 - **MannSakha+ (Premium)**: Offers advanced features for productivity enhancement.
 
+
+### 🌙 Dark Mode Support
+- **Automatic Theme Detection**: Automatically detects your system's preferred color scheme
+- **Manual Theme Control**: Toggle between Light, Dark, and Auto modes
+- **Persistent Preferences**: Your theme choice is saved and persists across sessions
+- **Smooth Transitions**: Beautiful animations when switching between themes
+- **Brand-Aligned Colors**: Carefully crafted color palette that maintains your brand identity
+
 ---
 
 ## Dependencies
@@ -102,3 +110,8 @@ Want to contribute? Follow these steps:
 ---
 
 🚀 **MannSakha - Your Smart Productivity Partner!**
+
+
+
+
+
