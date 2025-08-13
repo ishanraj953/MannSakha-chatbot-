@@ -595,6 +595,19 @@ nav ul li a:hover {
     background: #ffffff;
     color: #1A2526;
 }
+.about-container { /*make the container smaller*/
+  width: 60%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.careers-container {
+    width: 60%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 
 .scroll-indicator {
     position: absolute;
