@@ -156,6 +156,36 @@ window.onload = function () {
     }
 };
 
+// Mobile Menu Toggle Function
+function toggleMobileMenu() {
+    const navMenu = document.querySelector('nav ul');
+    if (navMenu) {
+        navMenu.classList.toggle('active');
+    }
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const navMenu = document.querySelector('nav ul');
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    
+    if (navMenu && navMenu.classList.contains('active') && 
+        !navMenu.contains(event.target) && 
+        !mobileToggle.contains(event.target)) {
+        navMenu.classList.remove('active');
+    }
+});
+
+// Close mobile menu when clicking on a link
+document.addEventListener('click', function(event) {
+    if (event.target.tagName === 'A' && event.target.href) {
+        const navMenu = document.querySelector('nav ul');
+        if (navMenu && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+        }
+    }
+});
+
 // Redirect to Chatbot Section
 document.getElementById('chatRedirect')?.addEventListener('click', function () {
     document.getElementById('chatbot')?.scrollIntoView({ behavior: 'smooth' });
