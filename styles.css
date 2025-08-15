@@ -157,6 +157,74 @@ header {
     font-weight: 600; /* Make text bolder for better readability */
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.8); /* Subtle white outline for contrast */
 }
+.info-section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px 35px;
+    background: var(--card-bg, #1e2128);
+    border-radius: 16px;
+    line-height: 1.9;
+    font-size: 1.1rem;
+    color: var(--text-primary, #f0f0f0);
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.info-section:hover {
+    border: 1px solid var(--accent-primary);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.info-section h2 {
+    font-size: 30px;
+    color: var(--accent-primary);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: clamp(1px, 0.5vw, 3px);
+    text-transform: uppercase;
+    opacity: 0.9;
+    text-shadow: 0 0 1.7px #bae6fd;
+    transition: transform 0.3s ease;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.info-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-secondary, #f5c542), var(--accent-primary, #ff914d));
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.info-section h2:hover::after {
+    background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary));
+    transition: width 0.3s ease;
+    width: 100%;
+    left: 0;
+}
+
+.info-section p {
+    margin-bottom: 18px;
+}
+
+.info-section strong {
+    color: var(--accent-secondary, #f5c542);
+}
+
+.info-section .highlight {
+    text-align: center;
+    margin-top: 28px;
+    font-weight: bold;
+    font-size: 1.15rem;
+    color: var(--accent-primary, #ffb3b3);
+}
 
 .theme-toggle::before {
     content: '';
