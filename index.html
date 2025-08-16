@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MannSakha AI</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -37,346 +38,403 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <h1 class="main-title">MannSakha.AI</h1>
-        <!-- Replaced search bar with a clickable button -->
-        <button class="ask-button" id="chatRedirect">
-            Ask MannSakha AI Anything... <span class="arrow">→</span>
-        </button>
-        <p>We are thrilled to unveil MannSakha AI, your trusted companion for smarter solutions.</p>
-        <div class="cta-buttons">
-            <a href="#" class="primary-btn">MANNSAKHA+ Coming Soon</a>
-            
+        <div class="hero-content">
+            <h1 class="main-title">MannSakha<span class="ai-highlight">.AI</span></h1>
+            <button class="ask-button" id="chatRedirect">
+                Ask MannSakha AI Anything... <span class="arrow">→</span>
+            </button>
+            <p class="hero-subtitle">Your AI-powered companion for mental wellness and productivity</p>
+            <div class="cta-buttons">
+                <a href="#" class="primary-btn">MANNSAKHA+ Coming Soon</a>
+                <a href="#features" class="secondary-btn">Explore Features</a>
+            </div>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
         </div>
-        <div class="scroll-indicator">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/expand-arrow--v1.png" alt="scroll" width="20">
-        </div>
+        <div class="hero-pattern"></div>
     </section>
 
     <!-- Main Content -->
     <div class="main-content">
         <!-- AI Chatbot Section -->
         <section id="chatbot" class="section">
-            <h2>AI-Powered Chatbot</h2>
-            <div class="chat-area" id="chatArea">
-                <div class="chat-bubble ai-message">Hi! How are you feeling today?</div>
+            <div class="section-header">
+                <h2><i class="fas fa-robot"></i> AI-Powered Chatbot</h2>
+                <div class="section-underline"></div>
             </div>
-            <div class="input-bar">
-                <input type="text" id="userInput" placeholder="Type your message..." />
-                <button onclick="sendMessage()">Send</button>
+            <div class="chat-container">
+                <div class="chat-area" id="chatArea">
+                    <div class="chat-bubble ai-message">
+                        <div class="chat-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="chat-text">
+                            <div class="chat-sender">MannSakha AI</div>
+                            <div class="chat-content">Hi there! I'm your MannSakha AI companion. How can I help you today?</div>
+                            <div class="chat-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-bar">
+                    <input type="text" id="userInput" placeholder="Type your message..." />
+                    <button onclick="sendMessage()" class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
             </div>
         </section>
 
-   <!-- About Section -->
-    <section id="about" class="info-section">
-        <div class="section-content">
-            <div class="decorative-circle circle-1"></div>
-            <div class="decorative-circle circle-2"></div>
-            <h2>About Us</h2>
-            <p><strong>In a world that moves faster every day</strong>, staying productive without burning out is a challenge. That is where <strong>MannSakha</strong> comes in — your AI-powered companion designed to help you manage your time, organize your day, and keep life in balance.</p>
-            <p><strong>Unlike therapy-based mental health apps</strong>, MannSakha focuses on the here and now — turning your goals into actionable plans, clearing mental clutter, and guiding you to work smarter while still making time to breathe.</p>
-            <p>Whether you are chasing deadlines, juggling priorities, or simply trying to find order in the chaos, <strong>MannSakha</strong> is here to make every day a little lighter and a lot more productive.</p>
-            <p class="highlight">Join us on this journey to a more balanced and productive life.</p>
-            <div class="section-icon">
-                <i class="fas fa-brain"></i>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="info-section">
-        <div class="section-content">
-            <div class="decorative-circle circle-1"></div>
-            <div class="decorative-circle circle-2"></div>
-            <h2>Services</h2>
-            <p><strong>MannSakha</strong> offers AI-powered tools to help you stay balanced and productive. From <strong>mood tracking</strong> to <strong>journaling</strong> and <strong>guided meditation</strong>, each service is designed to improve mental clarity and reduce stress in your daily routine.</p>
-            <p>Our services are flexible and adapt to your lifestyle — whether you're a student, a professional, or someone looking to create more calm in your day.</p>
-            <p class="highlight">Explore how we can make your life easier and your mind lighter.</p>
-            <div class="section-icon">
-                <i class="fas fa-hands-helping"></i>
-            </div>
-        </div>
-    </section>
-
-    <!-- Careers Section -->
-    <section id="careers" class="info-section">
-        <div class="section-content">
-            <div class="decorative-circle circle-1"></div>
-            <div class="decorative-circle circle-2"></div>
-            <h2>Careers</h2>
-            <p><strong>At MannSakha</strong>, productivity should never come at the cost of well-being — and we're building technology to prove it. Our team of <strong>innovators, designers, and problem-solvers</strong> shares one mission: to help people reclaim their time, energy, and peace of mind.</p>
-            <p>Joining us means more than just work — <strong>it means shaping the way thousands of people live and work</strong>. We create AI tools that empower focus, restore balance, and inspire better living.</p>
-            <p>If you thrive where ideas move fast, collaboration is valued, and your work makes a real difference, we'd love to work with you.</p>
-            <p class="highlight">Let's redefine productivity together.</p>
-            <div class="section-icon">
-                <i class="fas fa-users"></i>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="info-section">
-        <div class="section-content">
-            <div class="decorative-circle circle-1"></div>
-            <div class="decorative-circle circle-2"></div>
-            <h2>Blog</h2>
-            <p>Our blog shares insights on <strong>mental health</strong>, <strong>mindfulness</strong>, and <strong>AI innovations</strong> shaping the way we live and work. From productivity tips to self-care strategies, every article is crafted to inspire and guide you.</p>
-            <p>Whether you want to learn focus techniques, explore wellness methods, or keep up with AI trends, you'll find valuable reads here.</p>
-            <p class="highlight">Discover ideas that spark change and growth.</p>
-            <div class="section-icon">
-                <i class="fas fa-pen-fancy"></i>
-            </div>
-        </div>
-    </section>
-
-
-       <!-- Mood Tracking and Journaling Section -->
-    <section id="mood-tracking" class="feature-section">
-        <div class="section-header">
-            <h2><i class="fas fa-chart-line"></i> Mood Tracking & Journaling</h2>
-            <div class="section-underline"></div>
-        </div>
-        <div class="feature-content">
-            <div class="mood-log feature-card">
-                <div class="card-header">
-                    <i class="fas fa-smile"></i>
-                    <h3>Log Your Mood</h3>
+        <!-- About Section -->
+        <section id="about" class="info-section">
+            <div class="section-content">
+                <div class="decorative-circle circle-1"></div>
+                <div class="decorative-circle circle-2"></div>
+                <h2>About Us</h2>
+                <p><strong>In a world that moves faster every day</strong>, staying productive without burning out is a challenge. That is where <strong>MannSakha</strong> comes in — your AI-powered companion designed to help you manage your time, organize your day, and keep life in balance.</p>
+                <p><strong>Unlike therapy-based mental health apps</strong>, MannSakha focuses on the here and now — turning your goals into actionable plans, clearing mental clutter, and guiding you to work smarter while still making time to breathe.</p>
+                <p>Whether you are chasing deadlines, juggling priorities, or simply trying to find order in the chaos, <strong>MannSakha</strong> is here to make every day a little lighter and a lot more productive.</p>
+                <p class="highlight">Join us on this journey to a more balanced and productive life.</p>
+                <div class="section-icon">
+                    <i class="fas fa-brain"></i>
                 </div>
-                <div class="mood-selector">
-                    <div class="mood-option" data-mood="happy" onclick="selectMood(this)">
-                        <span>😊</span>
-                        <p>Happy</p>
-                    </div>
-                    <div class="mood-option" data-mood="sad" onclick="selectMood(this)">
-                        <span>😢</span>
-                        <p>Sad</p>
-                    </div>
-                    <div class="mood-option" data-mood="anxious" onclick="selectMood(this)">
-                        <span>😟</span>
-                        <p>Anxious</p>
-                    </div>
-                    <div class="mood-option" data-mood="calm" onclick="selectMood(this)">
-                        <span>😌</span>
-                        <p>Calm</p>
-                    </div>
-                </div>
-                <div class="mood-intensity">
-                    <label>Intensity: <span id="intensityValue">5</span>/10</label>
-                    <input type="range" min="1" max="10" value="5" id="moodIntensity">
-                </div>
-                <button class="primary-btn" onclick="logMood()">
-                    <i class="fas fa-plus-circle"></i> Log Mood
-                </button>
             </div>
-            
-            <div class="journal feature-card">
-                <div class="card-header">
-                    <i class="fas fa-book-open"></i>
-                    <h3>Reflective Journaling</h3>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="info-section">
+            <div class="section-content">
+                <div class="decorative-circle circle-1"></div>
+                <div class="decorative-circle circle-2"></div>
+                <h2>Services</h2>
+                <p><strong>MannSakha</strong> offers AI-powered tools to help you stay balanced and productive. From <strong>mood tracking</strong> to <strong>journaling</strong> and <strong>guided meditation</strong>, each service is designed to improve mental clarity and reduce stress in your daily routine.</p>
+                <p>Our services are flexible and adapt to your lifestyle — whether you're a student, a professional, or someone looking to create more calm in your day.</p>
+                <p class="highlight">Explore how we can make your life easier and your mind lighter.</p>
+                <div class="section-icon">
+                    <i class="fas fa-hands-helping"></i>
                 </div>
-                <div class="journal-prompt">
-                    <p id="journalPrompt">What made you happy today?</p>
-                    <button class="prompt-btn" onclick="newPrompt()">
-                        <i class="fas fa-sync-alt"></i> New Prompt
+            </div>
+        </section>
+
+        <!-- Mood Tracking and Journaling Section -->
+        <section id="mood-tracking" class="feature-section">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> Mood Tracking & Journaling</h2>
+                <div class="section-underline"></div>
+            </div>
+            <div class="feature-content">
+                <div class="mood-log feature-card">
+                    <div class="card-header">
+                        <i class="fas fa-smile"></i>
+                        <h3>Log Your Mood</h3>
+                    </div>
+                    <div class="mood-selector">
+                        <div class="mood-option" data-mood="happy" onclick="selectMood(this)">
+                            <span>😊</span>
+                            <p>Happy</p>
+                        </div>
+                        <div class="mood-option" data-mood="sad" onclick="selectMood(this)">
+                            <span>😢</span>
+                            <p>Sad</p>
+                        </div>
+                        <div class="mood-option" data-mood="anxious" onclick="selectMood(this)">
+                            <span>😟</span>
+                            <p>Anxious</p>
+                        </div>
+                        <div class="mood-option" data-mood="calm" onclick="selectMood(this)">
+                            <span>😌</span>
+                            <p>Calm</p>
+                        </div>
+                    </div>
+                    <div class="mood-intensity">
+                        <label>Intensity: <span id="intensityValue">5</span>/10</label>
+                        <input type="range" min="1" max="10" value="5" id="moodIntensity">
+                    </div>
+                    <button class="primary-btn" onclick="logMood()">
+                        <i class="fas fa-plus-circle"></i> Log Mood
                     </button>
                 </div>
-                <textarea id="journalEntry" placeholder="Write your thoughts here..."></textarea>
-                <div class="word-count">0/500 words</div>
-                <button class="primary-btn" onclick="saveJournal()">
-                    <i class="fas fa-save"></i> Save Entry
-                </button>
+                
+                <div class="journal feature-card">
+                    <div class="card-header">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Reflective Journaling</h3>
+                    </div>
+                    <div class="journal-prompt">
+                        <p id="journalPrompt">What made you happy today?</p>
+                        <button class="prompt-btn" onclick="newPrompt()">
+                            <i class="fas fa-sync-alt"></i> New Prompt
+                        </button>
+                    </div>
+                    <textarea id="journalEntry" placeholder="Write your thoughts here..."></textarea>
+                    <div class="word-count">0/500 words</div>
+                    <button class="primary-btn" onclick="saveJournal()">
+                        <i class="fas fa-save"></i> Save Entry
+                    </button>
+                </div>
             </div>
-        </div>
-        
-        <div id="moodTrend" class="trend-graph">
-            <div class="graph-header">
-                <h3>Your Mood Trend</h3>
-                <select id="timeRange">
-                    <option value="week">This Week</option>
-                    <option value="month">This Month</option>
-                    <option value="year">This Year</option>
-                </select>
+            
+            <div id="moodTrend" class="trend-graph">
+                <div class="graph-header">
+                    <h3>Your Mood Trend</h3>
+                    <select id="timeRange">
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                        <option value="year">This Year</option>
+                    </select>
+                </div>
+                <div class="graph-placeholder">
+                    <canvas id="moodChart"></canvas>
+                </div>
             </div>
-            <div class="graph-placeholder">
-                <canvas id="moodChart"></canvas>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Personalized Insights Section -->
-    <section id="insights" class="feature-section">
-        <div class="section-header">
-            <h2><i class="fas fa-lightbulb"></i> Personalized Insights</h2>
-            <div class="section-underline"></div>
-        </div>
-        <div class="insights-content feature-card">
-            <div class="insight-card">
-                <div class="insight-icon">
-                    <i class="fas fa-calendar-alt"></i>
+        <!-- Personalized Insights Section -->
+        <section id="insights" class="feature-section">
+            <div class="section-header">
+                <h2><i class="fas fa-lightbulb"></i> Personalized Insights</h2>
+                <div class="section-underline"></div>
+            </div>
+            <div class="insights-content feature-card">
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="insight-text">
+                        <h3>Weekly Pattern</h3>
+                        <p id="insightText">Based on your mood logs, you feel more stressed on Mondays. Try a breathing exercise!</p>
+                    </div>
                 </div>
-                <div class="insight-text">
-                    <h3>Weekly Pattern</h3>
-                    <p id="insightText">Based on your mood logs, you feel more stressed on Mondays. Try a breathing exercise!</p>
+                <div class="insight-actions">
+                    <button class="secondary-btn" onclick="showSuggestion()">
+                        <i class="fas fa-magic"></i> Get Personalized Suggestion
+                    </button>
+                    <button class="tertiary-btn" onclick="shareInsight()">
+                        <i class="fas fa-share-alt"></i> Share Insight
+                    </button>
                 </div>
             </div>
-            <div class="insight-actions">
-                <button class="secondary-btn" onclick="showSuggestion()">
-                    <i class="fas fa-magic"></i> Get Personalized Suggestion
-                </button>
-                <button class="tertiary-btn" onclick="shareInsight()">
-                    <i class="fas fa-share-alt"></i> Share Insight
-                </button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Guided Meditation Section -->
-    <section id="meditation" class="feature-section">
-        <div class="section-header">
-            <h2><i class="fas fa-spa"></i> Guided Meditation</h2>
-            <div class="section-underline"></div>
-        </div>
-        <div class="meditation-content">
-            <div class="meditation-card" onclick="playMeditation('stress')">
-                <div class="meditation-icon stress">
-                    <i class="fas fa-wind"></i>
-                </div>
-                <div class="meditation-info">
-                    <h3>Stress Relief</h3>
-                    <p>5-minute guided meditation to reduce stress and anxiety</p>
-                    <div class="meditation-meta">
-                        <span><i class="fas fa-clock"></i> 5 min</span>
-                        <span><i class="fas fa-headphones"></i> Audio</span>
+        <!-- Guided Meditation Section -->
+        <section id="meditation" class="feature-section">
+            <div class="section-header">
+                <h2><i class="fas fa-spa"></i> Guided Meditation</h2>
+                <div class="section-underline"></div>
+            </div>
+            <div class="meditation-content">
+                <div class="meditation-card" onclick="playMeditation('stress')">
+                    <div class="meditation-icon stress">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="meditation-info">
+                        <h3>Stress Relief</h3>
+                        <p>5-minute guided meditation to reduce stress and anxiety</p>
+                        <div class="meditation-meta">
+                            <span><i class="fas fa-clock"></i> 5 min</span>
+                            <span><i class="fas fa-headphones"></i> Audio</span>
+                        </div>
+                    </div>
+                    <div class="play-btn">
+                        <i class="fas fa-play"></i>
                     </div>
                 </div>
-                <div class="play-btn">
-                    <i class="fas fa-play"></i>
-                </div>
-            </div>
-            
-            <div class="meditation-card" onclick="playMeditation('focus')">
-                <div class="meditation-icon focus">
-                    <i class="fas fa-bullseye"></i>
-                </div>
-                <div class="meditation-info">
-                    <h3>Focus & Clarity</h3>
-                    <p>10-minute session to improve concentration and mental clarity</p>
-                    <div class="meditation-meta">
-                        <span><i class="fas fa-clock"></i> 10 min</span>
-                        <span><i class="fas fa-headphones"></i> Audio</span>
+                
+                <div class="meditation-card" onclick="playMeditation('focus')">
+                    <div class="meditation-icon focus">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="meditation-info">
+                        <h3>Focus & Clarity</h3>
+                        <p>10-minute session to improve concentration and mental clarity</p>
+                        <div class="meditation-meta">
+                            <span><i class="fas fa-clock"></i> 10 min</span>
+                            <span><i class="fas fa-headphones"></i> Audio</span>
+                        </div>
+                    </div>
+                    <div class="play-btn">
+                        <i class="fas fa-play"></i>
                     </div>
                 </div>
-                <div class="play-btn">
-                    <i class="fas fa-play"></i>
-                </div>
-            </div>
-            
-            <div class="meditation-card" onclick="playMeditation('sleep')">
-                <div class="meditation-icon sleep">
-                    <i class="fas fa-moon"></i>
-                </div>
-                <div class="meditation-info">
-                    <h3>Sleep & Relaxation</h3>
-                    <p>15-minute meditation for better sleep and deep relaxation</p>
-                    <div class="meditation-meta">
-                        <span><i class="fas fa-clock"></i> 15 min</span>
-                        <span><i class="fas fa-headphones"></i> Audio</span>
+                
+                <div class="meditation-card" onclick="playMeditation('sleep')">
+                    <div class="meditation-icon sleep">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="meditation-info">
+                        <h3>Sleep & Relaxation</h3>
+                        <p>15-minute meditation for better sleep and deep relaxation</p>
+                        <div class="meditation-meta">
+                            <span><i class="fas fa-clock"></i> 15 min</span>
+                            <span><i class="fas fa-headphones"></i> Audio</span>
+                        </div>
+                    </div>
+                    <div class="play-btn">
+                        <i class="fas fa-play"></i>
                     </div>
                 </div>
-                <div class="play-btn">
-                    <i class="fas fa-play"></i>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gamification Section -->
-    <section id="gamification" class="feature-section">
-        <div class="section-header">
-            <h2><i class="fas fa-trophy"></i> Your Wellness Journey</h2>
-            <div class="section-underline"></div>
-        </div>
-        <div class="gamification-content">
-            <div class="stats-card">
-                <div class="stat-item">
-                    <div class="stat-value" id="points">125</div>
-                    <div class="stat-label">Points</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="streak">7</div>
-                    <div class="stat-label">Day Streak</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="activities">12</div>
-                    <div class="stat-label">Activities</div>
-                </div>
+        <!-- Gamification Section -->
+        <section id="gamification" class="feature-section">
+            <div class="section-header">
+                <h2><i class="fas fa-trophy"></i> Your Wellness Journey</h2>
+                <div class="section-underline"></div>
             </div>
-            
-            <div class="progress-container">
-                <div class="progress-header">
-                    <h3>Daily Goal</h3>
-                    <span>75% completed</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 75%"></div>
-                </div>
-                <button class="primary-btn" onclick="completeActivity()">
-                    <i class="fas fa-check-circle"></i> Complete Activity
-                </button>
-            </div>
-            
-            <div class="badges-container">
-                <h3>Your Achievements</h3>
-                <div class="badges-grid" id="badges">
-                    <div class="badge earned">
-                        <div class="badge-icon">
-                            <i class="fas fa-medal"></i>
-                        </div>
-                        <div class="badge-info">
-                            <h4>Beginner</h4>
-                            <p>First week completed</p>
-                        </div>
+            <div class="gamification-content">
+                <div class="stats-card">
+                    <div class="stat-item">
+                        <div class="stat-value" id="points">125</div>
+                        <div class="stat-label">Points</div>
                     </div>
-                    <div class="badge earned">
-                        <div class="badge-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <div class="badge-info">
-                            <h4>Self-Care</h4>
-                            <p>5 journal entries</p>
-                        </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="streak">7</div>
+                        <div class="stat-label">Day Streak</div>
                     </div>
-                    <div class="badge">
-                        <div class="badge-icon">
-                            <i class="fas fa-fire"></i>
-                        </div>
-                        <div class="badge-info">
-                            <h4>Streak</h4>
-                            <p>30 day streak</p>
-                        </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="activities">12</div>
+                        <div class="stat-label">Activities</div>
                     </div>
                 </div>
+                
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <h3>Daily Goal</h3>
+                        <span>75% completed</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                    <button class="primary-btn" onclick="completeActivity()">
+                        <i class="fas fa-check-circle"></i> Complete Activity
+                    </button>
+                </div>
+                
+                <div class="badges-container">
+                    <h3>Your Achievements</h3>
+                    <div class="badges-grid" id="badges">
+                        <div class="badge earned">
+                            <div class="badge-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="badge-info">
+                                <h4>Beginner</h4>
+                                <p>First week completed</p>
+                            </div>
+                        </div>
+                        <div class="badge earned">
+                            <div class="badge-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="badge-info">
+                                <h4>Self-Care</h4>
+                                <p>5 journal entries</p>
+                            </div>
+                        </div>
+                        <div class="badge">
+                            <div class="badge-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="badge-info">
+                                <h4>Streak</h4>
+                                <p>30 day streak</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-    </div>
-    <div class="footer">
-            <div class="footer-1">
-                <div class="logo">MannSakha AI</div>
-            <ul class="socials">
-                <li><a href="https://github.com/RounakMishra06/MannSakha-chatbot-"><i class="fa-brands fa-github"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fa-solid fa-envelope"></i></a></li>
-            </ul>
-            </div>
-            <ul class="quick-links">
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#about">ABOUT</a></li>
-                <li><a href="#services">SERVICES</a></li>
-                <li><a href="#careers">CAREERS</a></li>
-                <li><a href="#blog">BLOG</a></li>
-            </ul>
+        </section>
     </div>
 
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon"></span>
+                        <span class="logo-text">MannSakha AI</span>
+                    </div>
+                    <p class="footer-tagline">Your AI companion for mental wellness</p>
+                    <div class="footer-socials">
+                        <a href="https://github.com/RounakMishra06/MannSakha-chatbot-" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navigation Column -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">GDPR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Column -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Investors</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Stay Updated</h3>
+                    <p class="footer-tagline">Subscribe to our newsletter for mental wellness tips</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-copyright">© <span id="current-year"></span> MannSakha AI. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Player (hidden) -->
+    <audio id="meditationPlayer"></audio>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle toast-icon"></i>
+            <span class="toast-message">Action completed successfully!</span>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
