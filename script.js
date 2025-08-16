@@ -485,3 +485,63 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Update copyright year automatically
+  document.getElementById("current-year").textContent =
+    new Date().getFullYear();
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('.footer a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+      if (targetId === "#") return;
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        // Update URL without page jump
+        history.pushState(null, null, targetId);
+      }
+    });
+  });
+
+  // Newsletter form submission
+  const newsletterForm = document.querySelector(".newsletter-form");
+  if (newsletterForm) {
+    newsletterForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const emailInput = this.querySelector('input[type="email"]');
+      const email = emailInput.value.trim();
+
+      if (email) {
+        // In a real app, you would send this to your backend
+        console.log("Subscribed email:", email);
+        alert("Thank you for subscribing!");
+        emailInput.value = "";
+      }
+    });
+  }
+
+  // Intersection Observer for animation
+  const footer = document.querySelector(".footer");
+  if (footer) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(footer);
+  }
+});
+
