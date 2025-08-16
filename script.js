@@ -247,3 +247,241 @@ document.getElementById('userInput')?.addEventListener('keypress', function (e) 
     }
 });
 
+// Mood Tracking
+let selectedMood = null;
+
+function selectMood(element) {
+    // Remove selected class from all options
+    document.querySelectorAll('.mood-option').forEach(option => {
+        option.classList.remove('selected');
+    });
+    
+    // Add selected class to clicked option
+    element.classList.add('selected');
+    selectedMood = element.getAttribute('data-mood');
+}
+
+function logMood() {
+    if (!selectedMood) {
+        alert('Please select a mood first');
+        return;
+    }
+    
+    const intensity = document.getElementById('moodIntensity').value;
+    const date = new Date().toLocaleDateString();
+    
+    // In a real app, you would save this to a database
+    console.log(`Logged mood: ${selectedMood}, Intensity: ${intensity}, Date: ${date}`);
+    
+    // Show confirmation
+    alert(`Your ${selectedMood} mood (intensity: ${intensity}) has been logged!`);
+    
+    // Update mood chart
+    updateMoodChart();
+}
+
+// Journaling
+const journalPrompts = [
+    "What made you happy today?",
+    "What challenge did you overcome today?",
+    "What are you grateful for today?",
+    "What did you learn about yourself today?",
+    "How are you feeling right now and why?"
+];
+
+function newPrompt() {
+    const randomPrompt = journalPrompts[Math.floor(Math.random() * journalPrompts.length)];
+    document.getElementById('journalPrompt').textContent = randomPrompt;
+    document.getElementById('journalEntry').value = '';
+    document.getElementById('journalEntry').focus();
+}
+
+function saveJournal() {
+    const entry = document.getElementById('journalEntry').value.trim();
+    if (!entry) {
+        alert('Please write something in your journal before saving');
+        return;
+    }
+    
+    const prompt = document.getElementById('journalPrompt').textContent;
+    const date = new Date().toLocaleString();
+    
+    // In a real app, you would save this to a database
+    console.log(`Saved journal entry:\nPrompt: ${prompt}\nEntry: ${entry}\nDate: ${date}`);
+    
+    // Show confirmation
+    alert('Your journal entry has been saved!');
+    
+    // Clear the textarea
+    document.getElementById('journalEntry').value = '';
+    
+    // Update word count
+    updateWordCount();
+}
+
+// Word count for journal
+document.getElementById('journalEntry').addEventListener('input', updateWordCount);
+
+function updateWordCount() {
+    const text = document.getElementById('journalEntry').value;
+    const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
+    document.querySelector('.word-count').textContent = `${wordCount}/500 words`;
+}
+
+// Mood Chart
+let moodChart;
+
+function updateMoodChart() {
+    const ctx = document.getElementById('moodChart').getContext('2d');
+    
+    // Sample data - in a real app, this would come from your database
+    const moodData = {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+            label: 'Mood Level',
+            data: [6, 7, 5, 8, 7, 9, 8],
+            backgroundColor: 'rgba(255, 145, 77, 0.2)',
+            borderColor: 'rgba(255, 145, 77, 1)',
+            borderWidth: 2,
+            tension: 0.4,
+            fill: true
+        }]
+    };
+    
+    if (moodChart) {
+        moodChart.destroy();
+    }
+    
+    moodChart = new Chart(ctx, {
+        type: 'line',
+        data: moodData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 10,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `Mood level: ${context.raw}`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Time range selector
+document.getElementById('timeRange').addEventListener('change', function() {
+    // In a real app, this would fetch different data based on the time range
+    console.log(`Time range changed to: ${this.value}`);
+    updateMoodChart();
+});
+
+// Insights
+function showSuggestion() {
+    const suggestions = [
+        "Try a 5-minute breathing exercise to reduce stress",
+        "Consider journaling about your current feelings",
+        "A short walk outside might help clear your mind",
+        "Listen to calming music for 10 minutes",
+        "Practice gratitude by listing 3 things you're thankful for"
+    ];
+    
+    const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
+    document.getElementById('insightText').textContent = randomSuggestion;
+}
+
+function shareInsight() {
+    const insight = document.getElementById('insightText').textContent;
+    alert(`Sharing insight: "${insight}"\nIn a real app, this would open your device's share dialog.`);
+}
+
+// Meditation
+function playMeditation(type) {
+    alert(`Starting ${type} meditation\nIn a real app, this would play the audio.`);
+}
+
+// Gamification
+function completeActivity() {
+    // In a real app, this would update your points in the database
+    const pointsElement = document.getElementById('points');
+    const currentPoints = parseInt(pointsElement.textContent);
+    const newPoints = currentPoints + 10;
+    pointsElement.textContent = newPoints;
+    
+    // Update streak
+    const streakElement = document.getElementById('streak');
+    const currentStreak = parseInt(streakElement.textContent);
+    streakElement.textContent = currentStreak + 1;
+    
+    // Update activities
+    const activitiesElement = document.getElementById('activities');
+    const currentActivities = parseInt(activitiesElement.textContent);
+    activitiesElement.textContent = currentActivities + 1;
+    
+    // Update progress bar
+    const progressFill = document.querySelector('.progress-fill');
+    const currentWidth = parseInt(progressFill.style.width);
+    progressFill.style.width = `${Math.min(currentWidth + 10, 100)}%`;
+    
+    // Show confirmation
+    alert('Activity completed! +10 points');
+    
+    // Check for new badges
+    checkBadges(newPoints);
+}
+
+function checkBadges(points) {
+    // In a real app, you would have more complex badge logic
+    if (points >= 100 && !document.querySelector('.badge.meditator')) {
+        // Add new badge
+        alert('Congratulations! You earned the Meditator badge!');
+    }
+}
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+    // Set initial journal prompt
+    newPrompt();
+    
+    // Initialize mood chart
+    updateMoodChart();
+    
+    // Set up mood intensity slider
+    document.getElementById('moodIntensity').addEventListener('input', function() {
+        document.getElementById('intensityValue').textContent = this.value;
+    });
+    
+    // Add animation to sections when they come into view
+    const sections = document.querySelectorAll('.feature-section');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    sections.forEach(section => {
+        section.style.opacity = 0;
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(section);
+    });
+});
+
