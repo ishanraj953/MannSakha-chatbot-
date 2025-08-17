@@ -1,6 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ feature-signUp/loginUI
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - MannSakha AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .login-btn {
+      background: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .login-btn:hover {
+      background: #0056b3;
+    }
+    .divider {
+      margin: 20px 0;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      line-height: 0.1em;
+      color: #888;
+    }
+    .divider span {
+      background: white;
+      padding: 0 10px;
+    }
+    .google-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid #dadce0;
+      border-radius: 15px;
+      padding: 10px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #3c4043;
+      cursor: pointer;
+      gap: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.2s ease-in-out;
+    }
+    .google-btn:hover {
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      transform: translateY(-1px);
+    }
+    .google-btn img {
+      width: 20px;
+      height: 20px;
+    }
+    .alt-option {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .alt-option a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .alt-option a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>Welcome Back</h2>
+  <form id="loginForm">
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="email" required>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="password" required>
+    </div>
+    <button type="submit" class="login-btn">Login</button>
+  </form>
+
+  <div class="divider"><span>OR</span></div>
+
+  <a href="/auth/google" style="text-decoration: none;">
+    <button type="button" class="google-btn">
+      <img src="googleLogo.jpg" alt="Google logo">
+      Continue with Google
+    </button>
+  </a>
+
+  <div class="alt-option">
+    Don't have an account? <a href="/signup.html">Sign Up</a>
+  </div>
+</div>
+
+<script src="login.js" defer></script>
+</body>
+</html>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MannSakha AI - Login</title>
@@ -55,3 +198,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+ main

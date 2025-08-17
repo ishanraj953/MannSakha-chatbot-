@@ -58,7 +58,21 @@ function handleLogin(event) {
         // Clear signupEmail from localStorage after successful login
         localStorage.removeItem('signupEmail');
         alert('Login successful! Redirecting to homepage...');
-        window.location.href = 'index.html'; // Redirect to homepage
+        fetch("/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.redirect) {
+                    window.location.href = data.redirect;
+                } else {
+                    alert(data.message);
+                }
+            });
+
+        window.location.href = '/index.html'; // Redirect to homepage
     } else {
         errorMessage.textContent = 'Invalid email or password. Please try again.';
         errorMessage.style.display = 'block';
@@ -66,7 +80,7 @@ function handleLogin(event) {
 }
 
 // Pre-fill email in login page if coming from sign-up
-window.onload = function() {
+window.onload = function () {
     const emailField = document.getElementById('email');
     if (emailField) {
         const signupEmail = localStorage.getItem('signupEmail');
@@ -77,7 +91,7 @@ window.onload = function() {
 };
 
 // Redirect to Chatbot Section
-document.getElementById('chatRedirect')?.addEventListener('click', function() {
+document.getElementById('chatRedirect')?.addEventListener('click', function () {
     document.getElementById('chatbot')?.scrollIntoView({ behavior: 'smooth' });
 });
 
