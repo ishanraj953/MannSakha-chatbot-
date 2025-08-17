@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Test - MannSakha AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid var(--border-color);
+        }
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .color-swatch {
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid var(--border-color);
+        }
+        .bg-primary { background: var(--bg-primary); color: var(--text-primary); }
+        .bg-secondary { background: var(--bg-secondary); color: var(--text-primary); }
+        .bg-tertiary { background: var(--bg-tertiary); color: var(--text-primary); }
+        .text-primary { background: var(--text-primary); color: var(--bg-primary); }
+        .text-secondary { background: var(--text-secondary); color: var(--bg-primary); }
+        .accent-primary { background: var(--accent-primary); color: var(--bg-primary); }
+        .accent-secondary { background: var(--accent-secondary); color: var(--text-primary); }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">MannSakha AI</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+                        <i class="fas fa-moon"></i>
+                        <span>Auto</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Test Content -->
+    <div class="main-content">
+        <h1>Dark Mode Test Page</h1>
+        <p>This page demonstrates the dark mode functionality. Use the toggle button in the header to switch between themes.</p>
+        
+        <div class="test-section">
+            <h2>Color Palette</h2>
+            <p>These color swatches show how the theme system adapts colors:</p>
+            <div class="color-palette">
+                <div class="color-swatch bg-primary">Background Primary</div>
+                <div class="color-swatch bg-secondary">Background Secondary</div>
+                <div class="color-swatch bg-tertiary">Background Tertiary</div>
+                <div class="color-swatch text-primary">Text Primary</div>
+                <div class="color-swatch text-secondary">Text Secondary</div>
+                <div class="color-swatch accent-primary">Accent Primary</div>
+                <div class="color-swatch accent-secondary">Accent Secondary</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Form Elements</h2>
+            <p>Test form elements in different themes:</p>
+            <div style="display: grid; gap: 15px; max-width: 400px;">
+                <input type="text" placeholder="Text input" style="padding: 10px; border-radius: 5px;">
+                <textarea placeholder="Textarea" rows="3" style="padding: 10px; border-radius: 5px;"></textarea>
+                <select style="padding: 10px; border-radius: 5px;">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                </select>
+                <button style="padding: 10px 20px; border-radius: 5px;">Test Button</button>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Current Theme Status</h2>
+            <p><strong>Stored Theme:</strong> <span id="storedTheme">Loading...</span></p>
+            <p><strong>Applied Theme:</strong> <span id="appliedTheme">Loading...</span></p>
+            <p><strong>System Preference:</strong> <span id="systemTheme">Loading...</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Update theme status display
+        function updateThemeStatus() {
+            document.getElementById('storedTheme').textContent = localStorage.getItem('theme') || 'auto';
+            document.getElementById('appliedTheme').textContent = document.documentElement.getAttribute('data-theme');
+            document.getElementById('systemTheme').textContent = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Dark' : 'Light';
+        }
+
+        // Update status every second
+        setInterval(updateThemeStatus, 1000);
+        updateThemeStatus();
+    </script>
+</body>
+</html> 
