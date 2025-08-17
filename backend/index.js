@@ -32,7 +32,7 @@ app.use(passport.session());
 mongoose.connect(process.env.MONGO_URI);
 
 // ---------------- STATIC FILES ----------------
-app.use(express.static(path.join(__dirname, '../')));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // Serve index.html for root
 app.get('/', (req, res) => {
@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 
 // Serve signup page
 app.get('/signup', (req, res) => {
-    res.sendFile(path.join(__dirname, '../signup.html'));
+    res.sendFile(path.join(__dirname, '../frontend/signup.html'));
 });
 
 // Serve login page
