@@ -1,4 +1,46 @@
+// login.js
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("loginForm");
+  const errorMessage = document.getElementById("errorMessage");
+
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    try {
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        // ✅ Login successful
+        window.location.href = data.redirect || "/index.html";
+      } else {
+        // ❌ Show error message
+        errorMessage.textContent = data.message || "Login failed";
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      errorMessage.textContent = "Something went wrong. Try again later.";
+    }
+  });
+});
+
+
+
+
 // Dark Mode Functionality
+
+
+
 let currentTheme = localStorage.getItem("theme") || "auto";
 
 // Function to get system theme preference
@@ -219,6 +261,8 @@ function handleSignup(event) {
 // Handle login form submission
 function handleLogin(event) {
     event.preventDefault();
+
+    console.log("inside login handle");
     
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
