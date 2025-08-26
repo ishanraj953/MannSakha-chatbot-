@@ -51,7 +51,7 @@ Follow these steps to set up MannSakha:
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/RounakMishra06/MannSakha.git
-cd MannSakha
+cd MannSakha-chatbot-
 ```
 
 ### 2. Install Dependencies
