@@ -53,7 +53,7 @@ Serious or repeated violations may result in **temporary or permanent bans**.
 ## 🚨 Reporting Issues
 If you experience or witness unacceptable behavior:  
 - Open a **GitHub Issue** in this repository, or  
-- Contact the maintainers directly at: **[rounakmishra06@example.com](mailto:rounakmishra06@example.com)**  
+- Contact the maintainers directly at: **[rounakmishra06@example.com](mailto:mrounak198@gmail.com)**  
 
 Your reports will be kept **confidential** 🔒.  
 
