@@ -8,7 +8,7 @@
 - Provides personalized scheduling suggestions based on workload.
 - Offers stress management techniques to maintain a balanced lifestyle.
 - Includes a **doctor recommendation feature** to connect users with professionals.
-
+ 
 ### Key Features & Benefits:
 - **Task Scheduling**: AI-powered smart scheduling to prioritize tasks.
 - **Workload Management**: Adjusts schedules dynamically to balance work.
