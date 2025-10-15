@@ -74,9 +74,8 @@ This project adopts the [Contributor Covenant](https://www.contributor-covenant.
 
 <div align="center">
 
-💙 Thank you for making **MannSakha** a respectful, inclusive, and fun community!  
-Together, let’s build a chatbot that not only helps with productivity but also promotes **positivity and balance** 🌸  
-
 <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXJwZHk0cm9reTRtaW81bjJjeDZzdHRlYmtzNDI0aXRzNjF5bG96MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/L1R1tvI9svkIWwpVYr/giphy.gif" width="250" alt="Thanks GIF"/>
 
+💙 Thank you for making **MannSakha** a respectful, inclusive, and fun community!  
+Together, let’s build a chatbot that not only helps with productivity but also promotes **positivity and balance** 🌸  
 </div>
