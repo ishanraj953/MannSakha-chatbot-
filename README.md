@@ -118,6 +118,8 @@ Want to contribute? Follow these steps:
 
 ## Contributors
 We appreciate your efforts in making **MannSakha** better. Your contributions help us build a more productive and stress-free experience for everyone!
+
+---
 <a href="https://github.com/RounakMishra06/MannSakha-chatbot-/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=RounakMishra06/MannSakha-chatbot-" />
 </a>
