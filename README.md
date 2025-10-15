@@ -1,4 +1,16 @@
-# MannSakha
+<!-- GSSoC Banner -->
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/92252895/259034403-7ad22f22-60f9-4c7f-b817-a5012bae4bb9.png" width="100%" />
+</p>
+
+<h1 align="center">🧠 MannSakha</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/github/stars/RounakMishra06/MannSakha-chatbot-?style=social" />
+  <img src="https://img.shields.io/github/forks/RounakMishra06/MannSakha-chatbot-?style=social" />
+  <img src="https://img.shields.io/github/issues/RounakMishra06/MannSakha-chatbot-" />
+  <img src="https://img.shields.io/github/license/RounakMishra06/MannSakha-chatbot-" />
+</p>
 
 ## Project Overview
 **MannSakha** is an AI-powered chatbot designed to help users manage their busy schedules efficiently while incorporating stress management features. Unlike therapy-based mental health chatbots, MannSakha focuses on productivity, time management, and workload balance. 
@@ -15,7 +27,6 @@
 - **Stress Management**: Provides relaxation tips and guided techniques.
 - **Doctor Recommendations**: Connects users with verified professionals.
 - **MannSakha+ (Premium)**: Offers advanced features for productivity enhancement.
-
 
 ### 🌙 Dark Mode Support
 - **Automatic Theme Detection**: Automatically detects your system's preferred color scheme
@@ -36,7 +47,6 @@ Ensure you have the following software and libraries installed:
 | React.js   | 18.x    |
 | MongoDB    | 6.x     |
 | Gemini API | Latest  |
-
 
 Install dependencies using:
 ```bash
@@ -83,7 +93,11 @@ The application will run at **http://localhost:3050**.
 
 ---
 
-## 
+## Contributors
+<a href="https://github.com/RounakMishra06/MannSakha-chatbot-/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=RounakMishra06/MannSakha-chatbot-" />
+</a>
+
 ---
 
 ## License
@@ -109,8 +123,8 @@ Want to contribute? Follow these steps:
 
 ---
 
-🚀 **MannSakha - Your Smart Productivity Partner!**
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:667eea,100:764ba2&height=100&section=footer" />
+</p>
 
-
-
-
+<h3 align="center">🚀 MannSakha - Your Smart Productivity Partner! 🚀</h3>
