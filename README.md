@@ -93,13 +93,6 @@ The application will run at **http://localhost:3050**.
 
 ---
 
-## Contributors
-<a href="https://github.com/RounakMishra06/MannSakha-chatbot-/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=RounakMishra06/MannSakha-chatbot-" />
-</a>
-
----
-
 ## License
 This project is licensed under the **MIT License**.
 
@@ -120,6 +113,14 @@ Want to contribute? Follow these steps:
 3. Commit changes (`git commit -m 'Add new feature'`).
 4. Push to the branch (`git push origin feature-name`).
 5. Open a Pull Request.
+
+---
+
+## Contributors
+We appreciate your efforts in making **MannSakha** better. Your contributions help us build a more productive and stress-free experience for everyone!
+<a href="https://github.com/RounakMishra06/MannSakha-chatbot-/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=RounakMishra06/MannSakha-chatbot-" />
+</a>
 
 ---
 
